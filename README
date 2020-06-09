@@ -1,0 +1,43 @@
+Wind Power Production Volume Prediction
+=======================================
+
+NTNU IDI 2019-2020
+Masteroppgave, Erik Liodden
+
+Veileder NTNU: Massimiliano Ruocco
+Veileder Refinitiv: Gabriele Martinelli
+
+A few notes on the implementation:
+	- The dataset is converted and restructured in `dataconvert.py`.
+	- Implementation of the Neural Network is found in `network.py`.
+	- The dataset is normalized and provided to the network in `dataset.py`.
+	- The storage and retreivel of data found during tested is implemented
+	  in `db.py`. The database require a file called config.ini in the
+	  project root directory with the following:
+
+	    	[mysql]
+	        host = <host>
+	        database = model_results
+	        user = <db user>
+	        password = <db password>
+
+	- The complete learning process is taken care of in `main.py`. Please
+	  see --help for options to be included.
+	- The `evaluation.py` script consists of various functions and methods
+	  used for evaluation purposes and generation of figures and tables to
+	  the thesis. This file is not essential, and should only be used as a
+	  reference.
+
+Example of use:
+	1. python dataconvert.py dataset.mat (to convert the dataset)
+	2. python main.py --no-storage --region EONon (to train the ANN using
+	   the EON (onshore) dataset and default network parameters)
+
+	Note: The seasonal harmonics for the relevant timestamps must be placed
+	in the file `harmonics/seasonal_harmonics.csv` before the model can be
+	trained.
+
+Documentation is available at https://folk.ntnu.no/eriklio/master/docs/
+
+Linux/macos and Python 3.6 or greater is required. Dependencies are located
+in requirements.txt.
