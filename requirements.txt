@@ -6,7 +6,7 @@ gnuplotlib==0.33
 torch==1.5.0
 sphinx_rtd_theme==0.4.3
 lightgbm==2.3.1
-scipy==1.4.1
+scipy==1.10.0
 h5py==2.10.0
 matplotlib==3.2.1
 GitPython==3.1.3
